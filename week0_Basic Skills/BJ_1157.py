@@ -2,9 +2,9 @@ S = input()
 count = [0] * 26
 
 for s in S:
-    if ord('a') <= ord(s) <= ord('z'):
+    if 'a' <= s <= 'z':
         count[ord(s) - ord('a')] += 1
-    elif ord('A') <= ord(s) <= ord('Z'):
+    elif 'A' <= s <= 'Z':
         count[ord(s) - ord('A')] += 1
     else:
         pass
