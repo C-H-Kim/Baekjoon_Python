@@ -1,9 +1,6 @@
-N, M = map(int, input().split())
-
-stack = []
-
-
 def permutation():
+    global stack
+
     if len(stack) == M:
         print(*stack)
         return
@@ -14,5 +11,8 @@ def permutation():
             permutation()
             stack.pop()
 
+
+N, M = map(int, input().split())
+stack = []
 
 permutation()
