@@ -4,7 +4,7 @@ def is_prime():
 
     for i in range(2, len(arr)):
         if arr[i]:
-            j = 2
+            j = i
             while i * j < len(arr):
                 arr[i * j] = False
                 j += 1
