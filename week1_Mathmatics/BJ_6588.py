@@ -1,13 +1,18 @@
+from math import sqrt
+
+
 def is_prime():
     global arr
     arr[0] = arr[1] = False
 
-    for i in range(2, len(arr)):
-        if arr[i]:
-            j = i
-            while i * j < len(arr):
-                arr[i * j] = False
-                j += 1
+    for i in range(2, int(sqrt(len(arr))) + 1):
+        if not arr[i]:
+            continue
+
+        j = i * i
+        while j < len(arr):
+            arr[j] = False
+            j += i
 
     return
 
@@ -23,11 +28,10 @@ while True:
 
     a = 0
     b = n
-    flag = False
+
     while True:
         if arr[a] and arr[b]:
             print(f"{n} = {a} + {b}")
-            flag = True
             break
 
         a += 1
