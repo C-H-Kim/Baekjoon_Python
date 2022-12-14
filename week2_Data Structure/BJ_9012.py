@@ -19,10 +19,6 @@ class Stack:
     def top(self):
         return self.items[-1]
 
-    def output(self):
-        print(self.items)
-
-
 
 T = int(input())
 
