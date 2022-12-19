@@ -7,7 +7,8 @@ answer = []
 
 for i in range(N):
     while stack:
-        #현재 타워보다 큰 타워가 있을 때까지 stack을 탐색
+        #stack에 있는 탑보다 현재 탑이 더 크다면 stack에서 pop
+        #현재 탑보다 작은 탑들은 연산할 필요가 없는 탑을 의미
         if top_list[stack[-1]] < top_list[i]:
             stack.pop()
         #현재 타워보다 큰 타워가 있다면 해당 위치를 answer에 push
