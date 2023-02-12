@@ -1,4 +1,5 @@
 from math import sqrt
+import sys
 
 
 def is_prime():
@@ -21,7 +22,7 @@ arr = [True] * 1000001
 is_prime()
 
 while True:
-    n = int(input())
+    n = int(sys.stdin.readline())
 
     if n == 0:
         break
