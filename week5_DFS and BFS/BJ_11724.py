@@ -1,11 +1,17 @@
 import sys
 from collections import deque
+sys.setrecursionlimit(10**6)
+
+
+def dfs(start):
+    visited[start] = True
+
+    for i in graph[start]:
+        if not visited[i]:
+            dfs(i)
 
 
 def bfs(start):
-    global visited
-    global graph
-
     queue = deque([start])
     visited[start] = True
 
@@ -32,7 +38,9 @@ for i in range(1, N + 1):
     if visited[i]:
         continue
 
+    #dfs(i)
     bfs(i)
+
     component += 1
 
 print(component)
