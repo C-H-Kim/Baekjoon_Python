@@ -34,5 +34,6 @@ for _ in range(M):
 
 visited = [False] * (N + 1)
 
+#dfs(1)
 bfs(1)
 print(visited.count(True) - 1)
