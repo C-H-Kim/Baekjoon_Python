@@ -1,5 +1,5 @@
 import sys
-
+from collections import deque
 
 def dfs(v):
     visited[v] = True
@@ -7,6 +7,18 @@ def dfs(v):
 
     if not visited[next]:
         dfs(next)
+
+
+def bfs(v):
+    queue = deque([v])
+    visited[v] = True
+
+    while queue:
+        next = graph[queue.popleft()]
+
+        if not visited[next]:
+            visited[next] = True
+            queue.append(next)
 
 
 T = int(input())
@@ -19,7 +31,8 @@ for _ in range(T):
 
     for i in range(1, N + 1):
         if not visited[i]:
-            dfs(i)
+            #dfs(i)
+            bfs(i)
             cycle += 1
 
     print(cycle)
