@@ -1,16 +1,25 @@
 import sys
+from collections import deque
 
 
-def dfs(start, depth):
+def bfs(start):
+    queue = deque([[start, 0]])
     visited[start] = True
+    cnt = 0
 
-    if depth == 2:
-        return
+    while queue:
+        v, depth = queue.popleft()
+        if depth <= 2:
+            cnt += 1
+        else:
+            break
 
-    for i in graph[start]:
-        if not visited[i]:
-            depth += 1
-            dfs(i, depth)
+        for i in graph[v]:
+            if not visited[i]:
+                visited[i] = True
+                queue.append([i, depth + 1])
+
+    return cnt - 1
 
 
 N = int(sys.stdin.readline())
@@ -24,4 +33,4 @@ for _ in range(M):
 
 visited = [False] * (N + 1)
 
-print(graph)
+print(bfs(1))
