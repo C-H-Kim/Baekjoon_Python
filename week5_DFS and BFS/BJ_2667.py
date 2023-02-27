@@ -38,7 +38,6 @@ def bfs(row, col):
 N = int(sys.stdin.readline())
 graph = [list(map(int, sys.stdin.readline().rstrip())) for _ in range(N)]
 house = []
-cnt = 0
 
 for i in range(N):
     for j in range(N):
@@ -47,9 +46,8 @@ for i in range(N):
             # dfs(i, j)
             bfs(i, j)
             house.append(house_cnt)
-            cnt += 1
 
 house.sort()
-print(cnt)
-for elem in house:
-    print(elem)
+print(len(house))
+for cnt in house:
+    print(cnt)
