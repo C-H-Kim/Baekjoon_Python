@@ -29,9 +29,6 @@ for _ in range(M):
     relation[A].append(B)
     relation[B].append(A)
 
-for i in range(N):
-    relation[i].sort()
-
 sum_list = []
 
 for i in range(1, N + 1):
