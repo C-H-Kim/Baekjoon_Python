@@ -2,23 +2,20 @@ import sys
 from collections import deque
 
 
-def bfs(start, dest):
-    queue = deque([[start, 0]])
+def bfs(start):
+    depth_list = [0] * (N + 1)
+    queue = deque([start])
     visited[start] = True
-    answer = 0
 
     while queue:
-        v, depth = queue.popleft()
-        if v == dest:
-            answer = depth
-            break
-
+        v = queue.popleft()
         for i in relation[v]:
             if not visited[i]:
+                depth_list[i] = depth_list[v] + 1
                 visited[i] = True
-                queue.append([i, depth + 1])
+                queue.append(i)
 
-    return answer
+    return sum(depth_list)
 
 
 N, M = map(int, sys.stdin.readline().split())
@@ -30,16 +27,8 @@ for _ in range(M):
     relation[B].append(A)
 
 sum_list = []
-
 for i in range(1, N + 1):
-    sum = 0
-    for j in range(1, N + 1):
-        visited = [False] * (N + 1)
-        if i != j:
-            sum += bfs(i, j)
-        else:
-            continue
-
-    sum_list.append(sum)
+    visited = [False] * (N + 1)
+    sum_list.append(bfs(i))
 
 print(sum_list.index(min(sum_list)) + 1)
