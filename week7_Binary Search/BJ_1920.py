@@ -7,7 +7,6 @@ A.sort()
 M = int(sys.stdin.readline())
 num_list = list(map(int, sys.stdin.readline().split()))
 
-ans_list = []
 for num in num_list:
     start = 0
     end = N - 1
