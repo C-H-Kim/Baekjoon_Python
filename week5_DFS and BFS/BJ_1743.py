@@ -51,8 +51,8 @@ for i in range(1, N + 1):
     for j in range(1, M + 1):
         if hall[i][j] == 1:
             size = 1
-            dfs(i, j)
-            # bfs(i, j)
+            # dfs(i, j)
+            bfs(i, j)
             max_size = max(max_size, size)
 
 print(max_size)
