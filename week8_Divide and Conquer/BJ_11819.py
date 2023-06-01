@@ -3,9 +3,7 @@ sys.setrecursionlimit(10 ** 6)
 
 
 def user_pow(a, b, c):
-    if b == 0:
-        return 0
-    elif b == 1:
+    if b == 1:
         return a
     else:
         x = user_pow(a, b // 2, c)
