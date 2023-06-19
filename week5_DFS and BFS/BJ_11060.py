@@ -16,10 +16,9 @@ def bfs(idx):
             break
 
         for i in range(1, A[index] + 1):
-            if index + i >= N or visited[index + i]:
-                continue
-            queue.append([index + i, depth + 1])
-            visited[index + i] = True
+            if index + i < N and not visited[index + i]:
+                queue.append([index + i, depth + 1])
+                visited[index + i] = True
 
     return answer
 
