@@ -1,12 +1,14 @@
 import sys
 
 
-def dfs(pNode):
+def dfs(rNode):
     global parent_list
-    parent_list[pNode] = -2
+    # 해당 노드의 부모 노드를 -2로 변경함으로써 제거된 것을 표시
+    parent_list[rNode] = -2
 
     for i in range(len(parent_list)):
-        if parent_list[i] == pNode:
+        # 현재 참조하고 있는 노드의 부모의 노드가 제거할 노드와 같다면 재귀
+        if parent_list[i] == rNode:
             dfs(i)
 
 
